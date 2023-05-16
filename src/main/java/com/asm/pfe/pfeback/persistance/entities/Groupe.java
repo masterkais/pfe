@@ -26,6 +26,8 @@ public class Groupe implements Serializable {
     private Long id;
     private int limite;
     private String nomGroup;
+    @ManyToMany(fetch = FetchType.LAZY)
+    private List<ActivitesCollectives> activitesCollectives=new ArrayList<>();
 
 
 

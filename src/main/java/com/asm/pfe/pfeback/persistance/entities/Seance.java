@@ -7,10 +7,12 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "T_GROUPE")
+@Table(name = "T_SEANCE")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -25,8 +27,9 @@ public class Seance implements Serializable {
     private Long id;
     private LocalDateTime dateDebut;
     private LocalDateTime dateFin;
-    @ManyToOne
-    @JoinColumn(name ="SALLE_ID" ,referencedColumnName = "ID")
-    private  Salle salle;
+    @JsonIgnore
+    @OneToMany(mappedBy = "seance", cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY)
+    private List<ActivitesCollectives> activitesCollectives=new ArrayList<>();
+
 
 }

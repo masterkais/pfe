@@ -36,4 +36,10 @@ public class SerieService implements ISerieService {
     public void delete(Long id) {
         serieDao.deleteById(id);
     }
+
+    @Override
+    public List<Serie> getAllSerieByExercice(Long id) {
+        return serieDao.getAllSerieByExercice(id);
+    }
+
 }

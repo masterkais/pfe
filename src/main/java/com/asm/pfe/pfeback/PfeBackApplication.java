@@ -33,7 +33,7 @@ public class PfeBackApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-       /* Group users = new Group(1L, "USER");
+       /*Group users = new Group(1L, "USER");
         Group admins = new Group(2L, "ADMIN");
         groupDao.saveAndFlush(users);
         groupDao.saveAndFlush(admins);

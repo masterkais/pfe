@@ -14,23 +14,23 @@ public class AbonnementController {
     @Autowired
     AbonnementService abonnementService;
     @PostMapping()
-    public Abonnement save(Abonnement abonnement) {
+    public Abonnement save(@RequestBody Abonnement abonnement) {
         return abonnementService.save(abonnement);
     }
     @PutMapping()
-    public Abonnement update(Abonnement abonnement) {
+    public Abonnement update(@RequestBody Abonnement abonnement) {
         return abonnementService.update(abonnement);
     }
-    @GetMapping(value = "/groups")
-    public Abonnement findById(Long id) {
+    @GetMapping(value = "/abonnement/{id}")
+    public Abonnement findById(@PathVariable  Long id) {
         return abonnementService.findById(id);
     }
-    @GetMapping(value = "/groups")
+    @GetMapping(value = "/abonnements")
     public List<Abonnement> findAllAbonnement() {
         return abonnementService.findAllAbonnement();
     }
     @DeleteMapping("/delete/{id}")
-    public void delete(Long id) {
+    public void delete(@PathVariable Long id) {
         abonnementService.delete(id);
     }
 

@@ -15,23 +15,23 @@ public class SeanceController {
     @Autowired
     SeanceService seanceService;
     @PostMapping()
-    public Seance save(Seance seance) {
+    public Seance save(@RequestBody Seance seance) {
         return seanceService.save(seance);
     }
     @PutMapping()
-    public Seance update(Seance seance) {
+    public Seance update(@RequestBody Seance seance) {
         return seanceService.update(seance);
     }
-    @GetMapping(value = "/groups")
+    @GetMapping(value = "/seance/{id}")
     public Seance findById(Long id) {
         return seanceService.findById(id);
     }
-    @GetMapping(value = "/groups")
+    @GetMapping(value = "/seances")
     public List<Seance> findAllSeance() {
         return seanceService.findAllSeance();
     }
     @DeleteMapping("/delete/{id}")
-    public void delete(Long id) {
+    public void delete(@PathVariable Long id) {
         seanceService.delete(id);
     }
 }

@@ -15,15 +15,15 @@ public class GroupeController {
     @Autowired
     GroupeService groupeService;
     @PostMapping()
-    public Groupe save(Groupe groupDto) {
+    public Groupe save(@RequestBody Groupe groupDto) {
         return groupeService.save(groupDto);
     }
     @PutMapping()
-    public Groupe update(Groupe group) {
+    public Groupe update(@RequestBody Groupe group) {
         return groupeService.update(group);
     }
-    @GetMapping(value = "/groups")
-    public Groupe findById(Long id) {
+    @GetMapping(value = "/groupe/{id}")
+    public Groupe findById(@PathVariable Long id) {
         return groupeService.findById(id);
     }
     @GetMapping(value = "/groups")
@@ -31,7 +31,7 @@ public class GroupeController {
         return groupeService.findAllEGroupe();
     }
     @DeleteMapping("/delete/{id}")
-    public void delete(Long id) {
+    public void delete(@PathVariable Long id) {
         groupeService.delete(id);
     }
 

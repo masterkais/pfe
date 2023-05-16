@@ -18,4 +18,5 @@ public interface ISerieService {
 
     void delete(Long id);
 
+    List<Serie> getAllSerieByExercice(Long id);
 }

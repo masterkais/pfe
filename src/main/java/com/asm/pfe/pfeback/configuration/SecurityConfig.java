@@ -26,13 +26,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-       // http.csrf().disable();
-       // http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        //http.authorizeRequests().antMatchers("/login/**", "/swagger-ui/index.html").permitAll();
-        //http.authorizeRequests().antMatchers("/api/**/**").hasAuthority("ADMIN");
-        //http.authorizeRequests().antMatchers("/api/group/**").hasAuthority("ADMIN");
-       // http.authorizeRequests().anyRequest().authenticated();
-        //http.addFilter(new JWTAuthenticationFilter(authenticationManager()));
-        //http.addFilterBefore(new JWTAuthorizationFiltre(), UsernamePasswordAuthenticationFilter.class);
+        http.csrf().disable();
+        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        http.authorizeRequests().antMatchers("/login/**", "/swagger-ui/index.html").permitAll();
+        http.authorizeRequests().antMatchers("/api/**/**").hasAuthority("ADMIN");
+        http.authorizeRequests().antMatchers("/api/group/**").hasAuthority("ADMIN");
+        http.authorizeRequests().anyRequest().authenticated();
+        http.addFilter(new JWTAuthenticationFilter(authenticationManager()));
+        http.addFilterBefore(new JWTAuthorizationFiltre(), UsernamePasswordAuthenticationFilter.class);
     }
 }

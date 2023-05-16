@@ -15,4 +15,6 @@ public interface IExerciceService {
     List<Exercice> findAllExercice();
 
     void delete(Long id);
+
+    List<Exercice> getAllExerciceByType(Long id);
 }

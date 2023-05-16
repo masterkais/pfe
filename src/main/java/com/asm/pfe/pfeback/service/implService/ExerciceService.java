@@ -35,4 +35,10 @@ public class ExerciceService implements IExerciceService {
     public void delete(Long id) {
 exerciceDao.deleteById(id);
     }
+
+    @Override
+    public List<Exercice> getAllExerciceByType(Long id) {
+        return exerciceDao.getAllExerciceByType(id);
+    }
+
 }

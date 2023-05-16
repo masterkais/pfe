@@ -36,14 +36,19 @@ public class User implements Serializable {
     private String userName;
     @Column(name = "U_PASSWORD")
     private String password;
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Exercice> excercices=new ArrayList<>();
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Groupe> groupes=new ArrayList<>();
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Salle> salles=new ArrayList<>();
+    @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY)
     private List<ActivitesCollectives> activitesCollectives=new ArrayList<>();
+    @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY)
     private List<Abonnement> abonnements=new ArrayList<>();
 

@@ -15,18 +15,18 @@ public class ActivtieCollectiveConroller {
     @Autowired
     ActiviteCollectiveService activiteCollectiveService;
     @PostMapping()
-    public ActivitesCollectives save(ActivitesCollectives activitesCollectives) {
+    public ActivitesCollectives save(@RequestBody ActivitesCollectives activitesCollectives) {
         return activiteCollectiveService.save(activitesCollectives);
     }
     @PutMapping()
-    public ActivitesCollectives update(ActivitesCollectives activitesCollectives) {
+    public ActivitesCollectives update(@RequestBody ActivitesCollectives activitesCollectives) {
         return activiteCollectiveService.update(activitesCollectives);
     }
-    @GetMapping(value = "/groups")
-    public ActivitesCollectives findById(Long id) {
+    @GetMapping(value = "/activtieCollective/{id}")
+    public ActivitesCollectives findById(@PathVariable Long id) {
         return activiteCollectiveService.findById(id);
     }
-    @GetMapping(value = "/groups")
+    @GetMapping(value = "/activtieCollectives")
     public List<ActivitesCollectives> findAllActivitesCollectives() {
         return activiteCollectiveService.findAllActivitesCollectives();
     }

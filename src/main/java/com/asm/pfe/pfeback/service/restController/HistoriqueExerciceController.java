@@ -15,23 +15,23 @@ public class HistoriqueExerciceController {
     @Autowired
     HistoriqueExerciceService historiqueExerciceService;
     @PostMapping()
-    public HistoriqueExercice save(HistoriqueExercice historiqueExercice) {
+    public HistoriqueExercice save(@RequestBody HistoriqueExercice historiqueExercice) {
         return historiqueExerciceService.save(historiqueExercice);
     }
     @PutMapping()
-    public HistoriqueExercice update(HistoriqueExercice historiqueExercice) {
+    public HistoriqueExercice update(@RequestBody HistoriqueExercice historiqueExercice) {
         return historiqueExerciceService.update(historiqueExercice);
     }
-    @GetMapping(value = "/groups")
+    @GetMapping(value = "/historiqueExercice/{id}")
     public HistoriqueExercice findById(Long id) {
         return historiqueExerciceService.findById(id);
     }
-    @GetMapping(value = "/groups")
+    @GetMapping(value = "/historiqueExercices")
     public List<HistoriqueExercice> findAllHistoriqueExercice() {
         return historiqueExerciceService.findAllHistoriqueExercice();
     }
     @DeleteMapping("/delete/{id}")
-    public void delete(Long id) {
+    public void delete(@PathVariable Long id) {
         historiqueExerciceService.delete(id);
     }
 }

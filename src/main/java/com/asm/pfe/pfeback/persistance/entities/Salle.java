@@ -26,8 +26,10 @@ public class Salle implements Serializable {
     private Long id;
     private String nomSalle;
     private boolean reserver;
+    @JsonIgnore
     @OneToMany(mappedBy = "salle", cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY)
-    private List<Seance> seances=new ArrayList<>();
+    private List<ActivitesCollectives> activitesCollectives=new ArrayList<>();
+
 
 
 }

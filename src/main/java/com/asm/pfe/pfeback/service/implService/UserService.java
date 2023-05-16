@@ -58,11 +58,9 @@ public class UserService implements IUserService {
         }
         String hachPW = bCryptPasswordEncoder.encode(userDto.getPassword());
         userDto.setPassword(hachPW);
-
+        System.out.println(userDto.getGroups());
         User savedUser = userDao.saveAndFlush(userDto);
         return userDto;
-
-
     }
 
     @Override

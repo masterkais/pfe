@@ -25,9 +25,18 @@ public class ActivitesCollectives implements Serializable {
     @EqualsAndHashCode.Include
     private Long id;
     private String nomAct;
+
     @ManyToOne
     @JoinColumn(name ="COACH_ID" ,referencedColumnName = "U_ID")
     private  User user;
+
+    @ManyToOne
+    @JoinColumn(name ="SALLE_ID" ,referencedColumnName = "ID")
+    private  Salle salle;
+
+    @ManyToOne
+    @JoinColumn(name ="SEANCE_ID" ,referencedColumnName = "ID")
+    private  Seance seance;
 
 
 }

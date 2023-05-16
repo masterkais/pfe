@@ -15,23 +15,23 @@ public class TypeExerciceController {
     @Autowired
     TypeExerciceService typeExerciceService;
     @PostMapping()
-    public TypeExercice save(TypeExercice typeExercice) {
+    public TypeExercice save(@RequestBody TypeExercice typeExercice) {
         return typeExerciceService.save(typeExercice);
     }
     @PutMapping()
-    public TypeExercice update(TypeExercice typeExercice) {
+    public TypeExercice update(@RequestBody TypeExercice typeExercice) {
         return typeExerciceService.update(typeExercice);
     }
-    @GetMapping(value = "/groups")
-    public TypeExercice findById(Long id) {
+    @GetMapping(value = "/typeExercice/{id}")
+    public TypeExercice findById(@PathVariable Long id) {
         return typeExerciceService.findById(id);
     }
-    @GetMapping(value = "/groups")
+    @GetMapping(value = "/typeExercices")
     public List<TypeExercice> findAllTypeExercice() {
         return typeExerciceService.findAllTypeExercice();
     }
     @DeleteMapping("/delete/{id}")
-    public void delete(Long id) {
+    public void delete(@PathVariable Long id) {
         typeExerciceService.delete(id);
     }
 

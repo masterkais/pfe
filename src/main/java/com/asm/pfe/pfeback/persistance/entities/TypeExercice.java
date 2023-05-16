@@ -1,5 +1,6 @@
 package com.asm.pfe.pfeback.persistance.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,6 +23,7 @@ public class TypeExercice implements Serializable {
     @Column(name = "ID")
     private Long id;
     private String nomExercice;
+    @JsonIgnore
     @OneToMany(mappedBy = "typeExercice", cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY)
     private List<Exercice> exercices=new ArrayList<>();
 
